@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Todo List</title>
+    </head>
+    <body >
+        <h1 class="add">Add to your list</h1>
+<form action="/post" method="POST">
+<p class="inputs">What is to be done ?:<input type="text" placeholder="Enter whatever you want " name="todo"></p>
+<p class="inputs">Date:<input type="date" name="date"></p>
+<p class="inputs">Time:<input type="time" name="time"></p>
+<p class="inputs"><button  type="submit">Add</button></p>
+</form>
+
+<div class="todo">
+    <h1 class="add">Your List</h1>
+    <ol type="1">
+        <%for(let i of todolist ){%>
+            <li class="li">
+                <span><%=i.todo%> on <span><%=i.date%></span> at <span><%=i.time%></span> </span>
+             </li>
+             <div class="delete">
+                <a id="a" href="/delete/?id=<%=i._id%>">Delete
+                </a>
+            <% } %>
+          
+    
+            </div>
+    </ol>
+    </div>
+    <style>
+        .li{
+            font-size: 30px;
+            margin: 10px;
+        }
+    input{
+        width: 400px;
+        margin: 20px;
+        
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid rgb(145, 132, 132);
+            display: inline-block;
+            text-align: center;
+            margin-left: 350px;
+            padding: 20px;
+            
+            
+        }
+        .inputs{
+            display: flex;
+            flex-direction: column;
+            display: block;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+        
+        }
+        .add{
+            text-align: center;
+            text-decoration: underline;
+        }
+        .todo{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        
+        }
+        #a{
+            color: black;
+        }
+      
+        
+        
+        
+    </style>
+    </body>
+</html>
